@@ -1,0 +1,70 @@
+workflows:
+  ios-workflow:
+    name: iOS Build
+    instance_type: mac_mini_m1
+    
+    environment:
+      ios_signing:
+        provisioning_profiles:
+          - reference_name: profile_ref
+      variables:
+        BUNDLE_ID: "com.example.buildyourownx"
+        TEAM_ID: "YOUR_TEAM_ID"
+      node: 18.16.0
+      xcode: latest
+
+    scripts:
+      - name: Install dependencies
+        script: |
+          npm install
+          npm install -g @capacitor/cli
+
+      - name: Build web app
+        script: |
+          npm run build
+
+      - name: Add iOS platform
+        script: |
+          npx cap add ios || echo "iOS platform already exists"
+
+      - name: Sync iOS project
+        script: |
+          npx cap sync ios
+
+      - name: Build iOS app
+        script: |
+          cd ios/App
+          pod install --repo-update
+          xcodebuild build -workspace App.xcworkspace \
+            -scheme App \
+            -configuration Release \
+            -derivedDataPath build/
+
+      - name: Build iOS IPA
+        script: |
+          cd ios/App
+          xcodebuild archive \
+            -workspace App.xcworkspace \
+            -scheme App \
+            -configuration Release \
+            -archivePath build/App.xcarchive \
+            -allowProvisioningUpdates
+
+      - name: Export IPA
+        script: |
+          cd ios/App
+          xcodebuild -exportArchive \
+            -archivePath build/App.xcarchive \
+            -exportOptionsPlist ExportOptions.plist \
+            -exportPath build/ipa
+
+    artifacts:
+      - ios/App/build/ipa/*.ipa
+
+    publishing:
+      email:
+        recipients:
+          - user@example.com
+        notify:
+          success: true
+          failure: true
