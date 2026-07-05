@@ -43,4 +43,7 @@ workflows:
     publishing:
       email:
         recipients:
-          - dev@ship-it.local
+          - ${{ secrets.BUILD_EMAIL }}
+        notify:
+          success: true
+          failure: true
