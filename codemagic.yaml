@@ -6,6 +6,9 @@ workflows:
     environment:
       node: 18.16.0
       xcode: latest
+      ios_signing:
+        provisioning_profiles:
+          - reference_name: default_profile
     scripts:
       - name: Install dependencies
         script: |
@@ -36,7 +39,8 @@ workflows:
             -workspace App.xcworkspace \
             -scheme App \
             -configuration Release \
-            -derivedDataPath build/
+            -derivedDataPath build/ \
+            -allowProvisioningUpdates
 
     artifacts:
       - ios/App/build/**/*.app
