@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Build Your Own X Catalog</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Catalogue local</p>
+        <h1>Build Your Own X</h1>
+        <p class="subtitle">Découvrez et filtrez les tutoriels de la repository GitHub.</p>
+      </div>
+      <a class="repo-link" href="https://github.com/codecrafters-io/build-your-own-x" target="_blank" rel="noreferrer">Voir la repo</a>
+    </header>
+
+    <section class="toolbar">
+      <input id="search" type="text" placeholder="Rechercher un tuto, langage ou catégorie">
+      <button id="refresh">Actualiser</button>
+    </section>
+
+    <section id="stats" class="stats"></section>
+    <section id="results" class="results"></section>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>

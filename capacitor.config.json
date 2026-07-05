@@ -1,0 +1,6 @@
+{
+  "appId": "com.example.buildyourownx",
+  "appName": "Build Your Own X",
+  "webDir": "dist",
+  "bundledWebRuntime": false
+}

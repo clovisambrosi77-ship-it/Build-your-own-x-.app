@@ -1,0 +1,36 @@
+:root {
+  color-scheme: dark;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #07111f, #111827);
+  color: #f5f7fb;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; min-height: 100vh; background: linear-gradient(135deg, #07111f, #111827); color: #f5f7fb; }
+button, input, a { font: inherit; }
+
+.app-shell { max-width: 960px; margin: 0 auto; padding: 20px 16px 40px; }
+.hero { display: flex; justify-content: space-between; align-items: center; gap: 16px; background: rgba(15,27,45,0.95); border: 1px solid rgba(255,255,255,.08); border-radius: 20px; padding: 20px; box-shadow: 0 16px 40px rgba(0,0,0,.24); }
+.eyebrow { text-transform: uppercase; letter-spacing: 0.2em; color: #6ee7f9; font-size: 0.8rem; margin: 0 0 6px; }
+h1 { margin: 0 0 8px; font-size: 1.7rem; }
+.subtitle { color: #8ea3b8; margin: 0; }
+.hero-actions, .toolbar-actions, .actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.toolbar { display: flex; gap: 10px; margin: 16px 0; }
+.toolbar input { flex: 1; padding: 12px 14px; border-radius: 999px; border: 1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.06); color: #fff; }
+.btn { border: none; border-radius: 999px; padding: 10px 14px; background: linear-gradient(90deg, #6ee7f9, #8b5cf6); color: white; font-weight: 700; cursor: pointer; }
+.btn.small { padding: 8px 12px; font-size: 0.9rem; }
+.btn.secondary { background: rgba(255,255,255,.12); color: #fff; }
+.btn.ghost { background: transparent; border: 1px solid rgba(255,255,255,.12); color: #fff; }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-bottom: 16px; }
+.stat-card, .card, .panel { background: rgba(15,27,45,0.95); border: 1px solid rgba(255,255,255,.08); border-radius: 16px; padding: 14px; }
+.panel { margin-bottom: 16px; }
+.panel h2 { margin: 0 0 12px; font-size: 1.05rem; }
+.stat-card strong { display: block; font-size: 1.2rem; margin-bottom: 4px; }
+.results, .library { display: grid; gap: 12px; }
+.card h3 { margin: 0 0 6px; font-size: 1rem; }
+.meta { color: #8ea3b8; font-size: 0.95rem; margin-bottom: 8px; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+.tag { padding: 4px 8px; border-radius: 999px; background: rgba(110,231,249,.14); color: #6ee7f9; font-size: 0.82rem; }
+.link { color: #6ee7f9; text-decoration: none; font-weight: 600; }
+.empty { padding: 18px; text-align: center; color: #8ea3b8; }
+@media (max-width: 700px) { .hero, .toolbar { flex-direction: column; align-items: stretch; } }
