@@ -43,7 +43,7 @@ workflows:
     publishing:
       email:
         recipients:
-          - ${{ secrets.BUILD_EMAIL }}
+          - ambrosi.clovis@icloud.com
         notify:
           success: true
           failure: true
